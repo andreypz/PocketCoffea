@@ -54,7 +54,9 @@ def get_xrootd_sites_map():
         file_time = os.path.getmtime(".sites_map.json")
         current_time = time.time()
         ten_minutes_ago = current_time - 600
-        if file_time > ten_minutes_ago:
+        two_hours_ago = current_time - 60*2*60
+        #if file_time > ten_minutes_ago:
+        if file_time > two_hours_ago:
             cache_valid = True
 
     if not os.path.exists(".sites_map.json") or not cache_valid:
